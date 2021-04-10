@@ -10,7 +10,7 @@ To use it you must obtain a copy of the SaperaLT SDK for Linux from Teledyne DAL
 
 ## How To Use
 
-Example will come later.
+Please see [examples/hello/main.go](./examples/hello/main.go)
 
 ## Installing
 
