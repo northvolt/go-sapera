@@ -24,8 +24,6 @@ long SapXferContext_GetCounter(SapXferContextWrapper ctx);
 
 SapXferContextWrapper SapXferCallbackInfo_GetContext(SapXferCallbackInfoWrapper cbinfo);
 
-void SetGoCallbackInfo(SapAcqToBufWrapper xfer);
-
 #ifdef __cplusplus
 }
 #endif

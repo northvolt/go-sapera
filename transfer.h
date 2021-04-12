@@ -23,8 +23,6 @@ bool SapAcqToBuf_SetCallbackInfo(SapAcqToBufWrapper trs, SapXferContextWrapper c
 SapXferFrameRateInfoWrapper SapAcqToBuf_GetFrameRateStatistics(SapAcqToBufWrapper trs);
 int SapXferFrameRateInfo_GetBufferFrameRate(SapXferFrameRateInfoWrapper inf);
 
-void SetGoCallbackInfo(SapAcqToBufWrapper xfer);
-
 #ifdef __cplusplus
 }
 #endif

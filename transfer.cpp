@@ -2,7 +2,7 @@
 #include "transfer.h"
 
 SapAcqToBufWrapper SapAcqToBuf_New(SapAcquisitionWrapper acq, SapBufferWrapper buf, SapXferContextWrapper context) {
-	return new SapAcqToBuf(acq, buf, xfergocallback, context);
+	return new SapAcqToBuf(acq, buf, goxferhandler, context);
 }
 
 void SapAcqToBuf_Delete(SapAcqToBufWrapper trs) {
@@ -46,7 +46,7 @@ const char* SapAcqToBuf_GetLastStatus(SapAcqToBufWrapper trs) {
 }
 
 bool SapAcqToBuf_SetCallbackInfo(SapAcqToBufWrapper trs, SapXferContextWrapper context) {
-    return trs->SetCallbackInfo(xferCallback, context);
+    return trs->SetCallbackInfo(goxferhandler, context);
 }
 
 SapXferContextWrapper SapXferContext_New() {

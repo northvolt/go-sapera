@@ -42,8 +42,7 @@ typedef struct
 } SapXferContext;
 typedef SapXferContext* SapXferContextWrapper;
 
-extern void xfergocallback(SapXferCallbackInfoWrapper pInfo);
-extern void goxferhandler(SapXferCallbackInfoWrapper pinfo);
+extern void goxferhandler(SapXferCallbackInfoWrapper pInfo);
 
 extern void _CorW32_EnableKernelEventNotification(void); // New entrypoint that will be part of next SaperaLT SDK release.
 

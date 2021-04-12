@@ -1,21 +1,10 @@
 #include "sap.h"
 
-extern "C" {
-  void xferCallback(SapXferCallbackInfoWrapper pInfo) {
-      printf("xferCallback called\n");
-  }
-}
-
 extern "C"
 {
 	void xfergocallback(SapXferCallbackInfoWrapper pInfo)
 	{
 		goxferhandler(pInfo);
-	}
-
-	void SetGoCallbackInfo(SapAcqToBufWrapper xfer)
-	{
-		xfer->SetCallbackInfo(xfergocallback, NULL);
 	}
 }
 

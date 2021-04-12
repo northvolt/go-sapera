@@ -88,7 +88,3 @@ func (inf *SapXferFrameRateInfo) GetBufferFrameRate() int {
 func (cb SapXferCallbackInfo) GetContext() SapXferContext {
 	return SapXferContext{p: unsafe.Pointer(C.SapXferCallbackInfo_GetContext(cb.p))}
 }
-
-func SetTransferCallbackInfo(xfer SapAcqToBuf) {
-	C.SetGoCallbackInfo((C.SapAcqToBufWrapper)(xfer.p))
-}

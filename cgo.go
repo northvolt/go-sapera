@@ -18,12 +18,12 @@ var xferCallbackHandler []func(cb SapXferCallbackInfo)
 //export goxferhandler
 func goxferhandler(cb C.SapXferCallbackInfoWrapper) {
 	cbinfo := SapXferCallbackInfo{p: cb}
-	// TODO: use cbinfo context to determine which callback applies
+	// TODO: use cbinfo context to determine which callback applies to this transfer
 	if len(xferCallbackHandler) > 0 && xferCallbackHandler[0] != nil {
 		xferCallbackHandler[0](cbinfo)
 		return
 	}
 
 	ctx := cbinfo.GetContext()
-	fmt.Println("frame transfer from ID", ctx.GetID())
+	fmt.Println("no callback handler for frame transfer from ID", ctx.GetID())
 }
