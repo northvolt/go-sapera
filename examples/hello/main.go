@@ -23,10 +23,13 @@ func main() {
 	fmt.Println("starting, sapera.GetServerCount() = ", sapera.GetServerCount())
 	go scan(doneChan)
 
-	select {
-	case <-doneChan:
-	}
+	time.Sleep(10 * time.Second)
 
+	doneChan <- true
+
+	time.Sleep(5 * time.Second)
+
+	fmt.Println(frames, "frames transferred")
 	fmt.Println("done.")
 }
 
@@ -81,17 +84,14 @@ func scan(doneChan chan bool) {
 	xfer.Grab()
 	fmt.Println("grabbing...")
 
-	time.Sleep(5 * time.Second)
+	select {
+	case <-doneChan:
+		xfer.Freeze()
 
-	xfer.Freeze()
-
-	if !xfer.Wait(3000) {
-		xfer.Abort()
+		if !xfer.Wait(3000) {
+			xfer.Abort()
+		}
 	}
-
-	doneChan <- true
-
-	fmt.Println(frames, "frames transferred")
 }
 
 func trsHandler(cbinfo sapera.SapXferCallbackInfo) {
