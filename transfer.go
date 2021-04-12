@@ -73,7 +73,7 @@ func (trs *SapAcqToBuf) SetCallbackHandler(hdl func(cb SapXferCallbackInfo), con
 }
 
 func (trs *SapAcqToBuf) UnregisterCallback() bool {
-	return bool(C.SapAcqToBuf_UnregisterCallback((C.SapAcqToBufWrapper)(trs.p))
+	return bool(C.SapAcqToBuf_UnregisterCallback((C.SapAcqToBufWrapper)(trs.p)))
 }
 
 // SapXferFrameRateInfo is to retrieve frame rate stats for transfers. Does not seem to work yet.
