@@ -12,6 +12,8 @@ const (
 	configFile = "./your-config-file-here.ccf"
 )
 
+var frames int
+
 func main() {
 	doneChan := make(chan bool)
 
@@ -79,14 +81,7 @@ func scan(doneChan chan bool) {
 	xfer.Grab()
 	fmt.Println("grabbing...")
 
-	start := time.Now()
-	for {
-		if time.Since(start) > 5*time.Second {
-			break
-		}
-
-		time.Sleep(time.Second)
-	}
+	time.Sleep(5 * time.Second)
 
 	xfer.Freeze()
 
@@ -95,8 +90,11 @@ func scan(doneChan chan bool) {
 	}
 
 	doneChan <- true
+
+	fmt.Println(frames, "frames transferred")
 }
 
 func trsHandler(cbinfo sapera.SapXferCallbackInfo) {
 	fmt.Println("Transfer callback from application")
+	frames++
 }
