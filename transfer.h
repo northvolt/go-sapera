@@ -19,6 +19,7 @@ bool SapAcqToBuf_Abort(SapAcqToBufWrapper trs);
 bool SapAcqToBuf_Wait(SapAcqToBufWrapper trs, int ms);
 const char* SapAcqToBuf_GetLastStatus(SapAcqToBufWrapper trs);
 bool SapAcqToBuf_SetCallbackInfo(SapAcqToBufWrapper trs, SapXferContextWrapper context);
+bool SapAcqToBuf_UnregisterCallback(SapAcqToBufWrapper trs);
 
 SapXferFrameRateInfoWrapper SapAcqToBuf_GetFrameRateStatistics(SapAcqToBufWrapper trs);
 int SapXferFrameRateInfo_GetBufferFrameRate(SapXferFrameRateInfoWrapper inf);

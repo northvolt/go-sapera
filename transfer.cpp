@@ -49,6 +49,10 @@ bool SapAcqToBuf_SetCallbackInfo(SapAcqToBufWrapper trs, SapXferContextWrapper c
     return trs->SetCallbackInfo(goxferhandler, context);
 }
 
+bool SapAcqToBuf_UnregisterCallback(SapAcqToBufWrapper trs) {
+    return trs->UnregisterCallback();
+}
+
 SapXferContextWrapper SapXferContext_New() {
     return new SapXferContext;
 }

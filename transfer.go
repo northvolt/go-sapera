@@ -72,6 +72,10 @@ func (trs *SapAcqToBuf) SetCallbackHandler(hdl func(cb SapXferCallbackInfo), con
 	return bool(C.SapAcqToBuf_SetCallbackInfo((C.SapAcqToBufWrapper)(trs.p), (C.SapXferContextWrapper)(context.p)))
 }
 
+func (trs *SapAcqToBuf) UnregisterCallback() bool {
+	return bool(C.SapAcqToBuf_UnregisterCallback((C.SapAcqToBufWrapper)(trs.p))
+}
+
 // SapXferFrameRateInfo is to retrieve frame rate stats for transfers. Does not seem to work yet.
 type SapXferFrameRateInfo struct {
 	p C.SapXferFrameRateInfoWrapper
