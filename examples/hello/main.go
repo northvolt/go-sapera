@@ -53,6 +53,8 @@ func scan(doneChan chan bool) {
 	xfer := sapera.NewSapAcqToBuf(acq, buf, context)
 	defer xfer.Delete()
 
+	xfer.SetCallbackHandler(trsHandler, context)
+
 	height, ok := acq.GetParameterInt32(sapera.CORACQ_PRM_CROP_HEIGHT)
 	if !ok {
 		fmt.Println("Could not get height parameter")
@@ -93,4 +95,8 @@ func scan(doneChan chan bool) {
 	}
 
 	doneChan <- true
+}
+
+func trsHandler(cbinfo sapera.SapXferCallbackInfo) {
+	fmt.Println("Transfer callback from application")
 }
