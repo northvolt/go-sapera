@@ -36,3 +36,7 @@ bool SapAcquisition_GetParameterInt64(SapAcquisitionWrapper acq, int param, long
 const char* SapAcquisition_GetLastStatus(SapAcquisitionWrapper acq) {
     return acq->GetLastStatus();
 }
+
+bool SapAcquisition_ResetTimeStamp(SapAcquisitionWrapper acq) {
+    return acq->ResetTimeStamp();
+}

@@ -16,6 +16,7 @@ bool SapAcquisition_SetParameter(SapAcquisitionWrapper acq, int param, int val);
 bool SapAcquisition_GetParameterInt32(SapAcquisitionWrapper acq, int param, int *val);
 bool SapAcquisition_GetParameterInt64(SapAcquisitionWrapper acq, int param, long *val);
 const char* SapAcquisition_GetLastStatus(SapAcquisitionWrapper acq);
+bool SapAcquisition_ResetTimeStamp(SapAcquisitionWrapper acq);
 
 #ifdef __cplusplus
 }
