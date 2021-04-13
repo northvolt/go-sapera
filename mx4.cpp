@@ -3,7 +3,7 @@
 
 MX4MetadataWrapper GetMX4MetadataFromBuffer(SapBufferWrapper buf, int width, int height) {
 	int numRead;
-	MX4MetadataWrapper metadata = new MX4MetadataWrapper;
+	MX4MetadataWrapper metadata = new MX4Metadata;
 	buf->ReadLine(width, height-1, width+64-1, height-1, metadata, &numRead);
 	return metadata;
 }
