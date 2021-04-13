@@ -54,3 +54,7 @@ func (acq *SapAcquisition) GetParameterInt64(param int) (int64, bool) {
 func (acq *SapAcquisition) GetLastStatus() string {
 	return C.GoString(C.SapAcquisition_GetLastStatus((C.SapAcquisitionWrapper)(acq.p)))
 }
+
+func (acq *SapAcquisition) ResetTimeStamp() bool {
+	return bool(C.SapAcquisition_ResetTimeStamp((C.SapAcquisitionWrapper)(acq.p)))
+}
