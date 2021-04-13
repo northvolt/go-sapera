@@ -1,15 +1,12 @@
 #ifndef _MX4_H_
 #define _MX4_H_
 
-#include "stdio.h"
-#include <stdbool.h>
+#include "sap.h"
+#include "buffer.h"
 
 #ifdef __cplusplus
-#include "SapClassBasic.h"
 extern "C" {
 #endif
-
-#include "corapi.h"
 
 typedef struct
 {
@@ -22,9 +19,12 @@ typedef struct
   UCHAR generalOutputs;
   UCHAR biDirectionalIOs;
   UCHAR reserved[25];
-} MX4Metadeta;
+} MX4Metadata;
 
-typedef MX4Metadeta* MX4MetadetaWrapper;
+typedef MX4Metadata* MX4MetadataWrapper;
+
+MX4MetadataWrapper GetMX4MetadataFromBuffer(SapBufferWrapper buf, int width, int height);
+void MX4Metadata_Close(MX4MetadataWrapper mta);
 
 #ifdef __cplusplus
 }
