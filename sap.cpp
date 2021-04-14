@@ -9,13 +9,13 @@ extern "C"
 }
 
 void SapManager_Init() {
-	 _CorW32_EnableKernelEventNotification();
+	_CorW32_EnableKernelEventNotification();
+	SapManager::SetDisplayStatusMode(SapManager::StatusLog);
 }
 
 int SapManager_GetServerCount() {
     return SapManager::GetServerCount();
 }
-
 
 SapLocationWrapper SapLocation_New(const char* acqServerName, int acqDeviceNumber) {
     return new SapLocation(acqServerName, acqDeviceNumber);
