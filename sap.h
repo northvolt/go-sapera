@@ -52,6 +52,8 @@ int SapManager_GetServerCount();
 SapLocationWrapper SapLocation_New(const char* acqServerName, int acqDeviceNumber);
 void SapLocation_Delete(SapLocationWrapper loc);
 
+extern CORSTATUS DisplayStatus(char *functionName, CORSTATUS status);
+
 #ifdef __cplusplus
 }
 #endif

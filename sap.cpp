@@ -24,3 +24,15 @@ SapLocationWrapper SapLocation_New(const char* acqServerName, int acqDeviceNumbe
 void SapLocation_Delete(SapLocationWrapper loc) {
     delete loc;
 }
+
+CORSTATUS DisplayStatus(char *functionName, CORSTATUS status)
+{
+	if (status != CORSTATUS_OK) {
+		char szId[128], szInfo[128], szLevel[64], szModule[64];
+		CorManGetStatusTextEx(status, szId, sizeof(szId), szInfo, sizeof(szInfo), szLevel, sizeof(szLevel), szModule, sizeof(szModule));
+		printf("%s in \"%s\" <%s module> => %s (%s)\n", szLevel, functionName, szModule, szId, szInfo);
+		return status;
+	}
+
+	return status;
+}
