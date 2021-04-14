@@ -33,6 +33,7 @@ bool SapBuffer_Save(SapBufferWrapper buf, const char* fileName, const char* opti
 const char* SapBuffer_GetLastStatus(SapBufferWrapper buf);
 int SapBuffer_GetIndex(SapBufferWrapper buf);
 void SapBuffer_SetIndex(SapBufferWrapper buf, int index);
+void SapBuffer_Next(SapBufferWrapper buf);
 
 #ifdef __cplusplus
 }
