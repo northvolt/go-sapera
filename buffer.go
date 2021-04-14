@@ -53,6 +53,10 @@ func (buf *SapBuffer) ReadLine(x1, y1, x2, y2 int, data []byte) (int, bool) {
 	return int(cCount), bool(result)
 }
 
+func (buf *SapBuffer) Copy(src SapBuffer, srcIndex, dstIndex int) bool {
+	return bool(C.SapBuffer_Copy((C.SapBufferWrapper)(buf.p), (C.SapBufferWrapper)(src.p), C.int(srcIndex), C.int(dstIndex)))
+}
+
 func (buf *SapBuffer) CopyRect(src SapBuffer, srcIndex, xSrc, ySrc, width, height, dstIndex, xDest, yDest int) bool {
 	return bool(C.SapBuffer_CopyRect((C.SapBufferWrapper)(buf.p), (C.SapBufferWrapper)(src.p), C.int(srcIndex), C.int(xSrc), C.int(ySrc), C.int(width), C.int(height), C.int(dstIndex), C.int(xDest), C.int(yDest)))
 }
@@ -122,4 +126,13 @@ func (buf *SapBuffer) SetFormat(format int) bool {
 
 func (buf *SapBuffer) GetLastStatus() string {
 	return C.GoString(C.SapBuffer_GetLastStatus((C.SapBufferWrapper)(buf.p)))
+}
+
+func (buf *SapBuffer) GetIndex() int {
+	return int(C.SapBuffer_GetIndex((C.SapBufferWrapper)(buf.p)))
+}
+
+func (buf *SapBuffer) SetIndex(index int) bool {
+	C.SapBuffer_SetIndex((C.SapBufferWrapper)(buf.p), C.int(index))
+	return true
 }

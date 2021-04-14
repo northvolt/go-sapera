@@ -78,6 +78,10 @@ bool SapBuffer_ReadLine(SapBufferWrapper buf, int x1, int y1, int x2, int y2, vo
     return buf->ReadLine(x1, y1, x2, y2, data, count);
 }
 
+bool SapBuffer_Copy(SapBufferWrapper buf, SapBufferWrapper pSrc, int srcIndex, int dstIndex) {
+    return buf->Copy(pSrc, srcIndex, dstIndex);
+}
+
 bool SapBuffer_CopyRect(SapBufferWrapper buf, SapBufferWrapper pSrc, int srcIndex, int xSrc, int ySrc, int width, int height, int dstIndex, int xDest, int yDest) {
     return buf->CopyRect(pSrc, srcIndex, xSrc, ySrc, width, height, dstIndex, xDest, yDest);
 }
@@ -92,4 +96,12 @@ bool SapBuffer_Save(SapBufferWrapper buf, const char* fileName, const char* opti
 
 const char* SapBuffer_GetLastStatus(SapBufferWrapper buf) {
     return buf->GetLastStatus();
+}
+
+int SapBuffer_GetIndex(SapBufferWrapper buf) {
+    return buf->GetIndex();
+}
+
+void SapBuffer_SetIndex(SapBufferWrapper buf, int index) {
+    buf->SetIndex(index);
 }
