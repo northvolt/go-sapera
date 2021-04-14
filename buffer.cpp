@@ -105,3 +105,7 @@ int SapBuffer_GetIndex(SapBufferWrapper buf) {
 void SapBuffer_SetIndex(SapBufferWrapper buf, int index) {
     buf->SetIndex(index);
 }
+
+void SapBuffer_Next(SapBufferWrapper buf) {
+    buf->Next();
+}

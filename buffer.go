@@ -136,3 +136,7 @@ func (buf *SapBuffer) SetIndex(index int) bool {
 	C.SapBuffer_SetIndex((C.SapBufferWrapper)(buf.p), C.int(index))
 	return true
 }
+
+func (buf *SapBuffer) Next() {
+	C.SapBuffer_Next((C.SapBufferWrapper)(buf.p))
+}
