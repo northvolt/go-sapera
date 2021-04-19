@@ -75,6 +75,16 @@ func (buf *SapBuffer) Save(fileName, options string) bool {
 	return bool(C.SapBuffer_Save((C.SapBufferWrapper)(buf.p), cfileName, coptions))
 }
 
+func (buf *SapBuffer) SaveForIndex(fileName, options string, index int) bool {
+	cfileName := C.CString(fileName)
+	defer C.free(unsafe.Pointer(cfileName))
+
+	coptions := C.CString(options)
+	defer C.free(unsafe.Pointer(coptions))
+
+	return bool(C.SapBuffer_SaveForIndex((C.SapBufferWrapper)(buf.p), cfileName, coptions, C.int(index)))
+}
+
 func (buf *SapBuffer) SetParameter(param int, val int) bool {
 	return bool(C.SapBuffer_SetParameter((C.SapBufferWrapper)(buf.p), C.int(param), C.int(val)))
 }
