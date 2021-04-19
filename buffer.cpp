@@ -95,7 +95,7 @@ bool SapBuffer_Save(SapBufferWrapper buf, const char* fileName, const char* opti
 }
 
 bool SapBuffer_SaveForIndex(SapBufferWrapper buf, const char* fileName, const char* options, int index) {
-    return buf->Save(fileName, options, index, 1);
+    return buf->Save(fileName, options, index);
 }
 
 const char* SapBuffer_GetLastStatus(SapBufferWrapper buf) {
