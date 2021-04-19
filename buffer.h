@@ -30,6 +30,7 @@ bool SapBuffer_Copy(SapBufferWrapper buf, SapBufferWrapper pSrc, int srcIndex, i
 bool SapBuffer_CopyRect(SapBufferWrapper buf, SapBufferWrapper pSrc, int srcIndex, int xSrc, int ySrc, int width, int height, int dstIndex, int xDest, int yDest);
 bool SapBuffer_CopyAll(SapBufferWrapper buf, SapBufferWrapper pSrc);
 bool SapBuffer_Save(SapBufferWrapper buf, const char* fileName, const char* options);
+bool SapBuffer_SaveForIndex(SapBufferWrapper buf, const char* fileName, const char* options, int index);
 const char* SapBuffer_GetLastStatus(SapBufferWrapper buf);
 int SapBuffer_GetIndex(SapBufferWrapper buf);
 void SapBuffer_SetIndex(SapBufferWrapper buf, int index);
