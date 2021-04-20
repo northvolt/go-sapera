@@ -46,7 +46,6 @@ func GetServerCount() int {
 	return int(C.SapManager_GetServerCount())
 }
 
-// MX4_METADATA metadata;
-// pcontext->Buffer->ReadLine(pcontext->width, pcontext->height-1, pcontext->width+64-1, pcontext->height-1, &metadata, &numRead);
-// int fc = metadata.frameCounter;
-// int lc = metadata.lineCount;
+func GetLastStatus() string {
+	return C.GoString(C.SapManager_GetLastStatus())
+}

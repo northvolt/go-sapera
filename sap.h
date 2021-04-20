@@ -48,6 +48,7 @@ extern void _CorW32_EnableKernelEventNotification(void); // New entrypoint that 
 
 void SapManager_Init();
 int SapManager_GetServerCount();
+const char* SapManager_GetLastStatus();
 
 SapLocationWrapper SapLocation_New(const char* acqServerName, int acqDeviceNumber);
 void SapLocation_Delete(SapLocationWrapper loc);
