@@ -10,7 +10,7 @@ extern "C"
 
 void SapManager_Init() {
 	_CorW32_EnableKernelEventNotification();
-	SapManager::SetDisplayStatusMode(SapManager::StatusCustom);
+	SapManager::SetDisplayStatusMode(SapManager::StatusLog);
 }
 
 int SapManager_GetServerCount() {
