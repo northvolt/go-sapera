@@ -37,7 +37,7 @@ func (mta MX4Metadata) LineTriggerCount() int64 {
 }
 
 func (mta MX4Metadata) Timestamp() time.Time {
-	return time.Unix(int64(((C.MX4MetadataWrapper)(mta.p)).timeStamp), 0)
+	return time.Unix(0, int64(((C.MX4MetadataWrapper)(mta.p)).timeStamp))
 }
 
 func (mta MX4Metadata) FrameCounter() int {
