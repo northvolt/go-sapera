@@ -24,6 +24,11 @@ long SapXferContext_GetCounter(SapXferContextWrapper ctx);
 
 SapXferContextWrapper SapXferCallbackInfo_GetContext(SapXferCallbackInfoWrapper cbinfo);
 
+SapAcqContextWrapper SapAcqContext_New();
+void SapAcqContext_Delete(SapAcqContextWrapper ctx);
+void SapAcqContext_SetID(SapAcqContextWrapper ctx, int id);
+int SapAcqContext_GetID(SapAcqContextWrapper ctx);
+
 #ifdef __cplusplus
 }
 #endif

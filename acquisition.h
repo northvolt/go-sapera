@@ -17,6 +17,10 @@ bool SapAcquisition_GetParameterInt32(SapAcquisitionWrapper acq, int param, int 
 bool SapAcquisition_GetParameterInt64(SapAcquisitionWrapper acq, int param, long *val);
 const char* SapAcquisition_GetLastStatus(SapAcquisitionWrapper acq);
 bool SapAcquisition_ResetTimeStamp(SapAcquisitionWrapper acq);
+bool SapAcquisition_RegisterCallback(SapAcquisitionWrapper acq, UINT64 eventType, SapAcqContextWrapper context);
+bool SapAcquisition_UnregisterCallbacks(SapAcquisitionWrapper acq);
+bool SapAcquisition_SetCallbackInfo(SapAcquisitionWrapper acq);
+bool SapAcquisition_SetEventType(SapAcquisitionWrapper acq, UINT64 eventType);
 
 #ifdef __cplusplus
 }

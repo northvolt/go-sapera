@@ -65,3 +65,20 @@ long SapXferContext_GetCounter(SapXferContextWrapper ctx) {
 SapXferContextWrapper SapXferCallbackInfo_GetContext(SapXferCallbackInfoWrapper cbinfo) {
     return (SapXferContextWrapper)cbinfo->GetContext();
 }
+
+SapAcqContextWrapper SapAcqContext_New() {
+    return new SapAcqContext;
+}
+
+void SapAcqContext_Delete(SapAcqContextWrapper ctx) {
+    delete ctx;
+}
+
+void SapAcqContext_SetID(SapAcqContextWrapper ctx, int id) {
+    ctx->id = id;
+    return; 
+}
+
+int SapAcqContext_GetID(SapAcqContextWrapper ctx) {
+    return ctx->id;
+}

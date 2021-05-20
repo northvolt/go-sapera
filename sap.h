@@ -18,8 +18,10 @@ typedef SapLocation* SapLocationWrapper;
 typedef SapTransfer* SapAcqToBufWrapper;
 typedef SapXferCallbackInfo* SapXferCallbackInfoWrapper;
 typedef SapXferFrameRateInfo* SapXferFrameRateInfoWrapper;
+typedef SapAcqCallbackInfo* SapAcqCallbackInfoWrapper;
 extern "C" {
   extern void xferCallback(SapXferCallbackInfoWrapper pInfo);
+  extern void acqCallback(SapAcqCallbackInfoWrapper pInfo);
 }
 #else
 typedef void* SapBufferWrapper;
@@ -28,7 +30,9 @@ typedef void* SapLocationWrapper;
 typedef void* SapAcqToBufWrapper;
 typedef void* SapXferCallbackInfoWrapper;
 typedef void* SapXferFrameRateInfoWrapper;
+typedef void* SapAcqCallbackInfoWrapper;
 extern  void xferCallback(SapXferCallbackInfoWrapper pInfo);
+extern  void acqCallback(SapAcqCallbackInfoWrapper pInfo);
 #endif
 
 typedef struct
@@ -42,7 +46,14 @@ typedef struct
 } SapXferContext;
 typedef SapXferContext* SapXferContextWrapper;
 
+typedef struct
+{
+	int                 id;
+} SapAcqContext;
+typedef SapAcqContext* SapAcqContextWrapper;
+
 extern void goxferhandler(SapXferCallbackInfoWrapper pInfo);
+extern void goacqhandler(SapAcqCallbackInfoWrapper pInfo);
 
 extern void _CorW32_EnableKernelEventNotification(void); // New entrypoint that will be part of next SaperaLT SDK release.
 

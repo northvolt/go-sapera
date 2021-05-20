@@ -68,3 +68,24 @@ func (ctx *SapXferContext) SetCounter(count int64) {
 func (ctx *SapXferContext) GetCounter() int64 {
 	return int64(C.SapXferContext_GetCounter((C.SapXferContextWrapper)(ctx.p)))
 }
+
+type SapAcqContext struct {
+	// C.SapAcqContextWrapper
+	p unsafe.Pointer
+}
+
+func NewSapAcqContext() SapAcqContext {
+	return SapAcqContext{p: unsafe.Pointer(C.SapAcqContext_New())}
+}
+
+func (ctx *SapAcqContext) Delete() {
+	C.SapAcqContext_Delete((C.SapAcqContextWrapper)(ctx.p))
+}
+
+func (ctx *SapAcqContext) SetID(id int) {
+	C.SapAcqContext_SetID((C.SapAcqContextWrapper)(ctx.p), C.int(id))
+}
+
+func (ctx *SapAcqContext) GetID() int {
+	return int(C.SapAcqContext_GetID((C.SapAcqContextWrapper)(ctx.p)))
+}

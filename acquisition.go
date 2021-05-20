@@ -12,6 +12,11 @@ type SapAcquisition struct {
 	p unsafe.Pointer
 }
 
+// SapAcqCallbackInfo is to pass context info to acquisition callbacks.
+type SapAcqCallbackInfo struct {
+	p C.SapAcqCallbackInfoWrapper
+}
+
 func NewSapAcquisition() SapAcquisition {
 	return SapAcquisition{p: unsafe.Pointer(C.SapAcquisition_New())}
 }
@@ -58,3 +63,31 @@ func (acq *SapAcquisition) GetLastStatus() string {
 func (acq *SapAcquisition) ResetTimeStamp() bool {
 	return bool(C.SapAcquisition_ResetTimeStamp((C.SapAcquisitionWrapper)(acq.p)))
 }
+
+func (acq *SapAcquisition) RegisterCallback(event uint64, hdl func(cb SapAcqCallbackInfo), context SapAcqContext) bool {
+	if len(acqCallbackHandler) == 0 {
+		acqCallbackHandler = append(acqCallbackHandler, hdl)
+	}
+
+	return bool(C.SapAcquisition_RegisterCallback((C.SapAcquisitionWrapper)(acq.p), C.UINT64(event), (C.SapAcqContextWrapper)(context.p)))
+}
+
+func (acq *SapAcquisition) UnregisterCallbacks() bool {
+	return bool(C.SapAcquisition_UnregisterCallbacks((C.SapAcquisitionWrapper)(acq.p)))
+}
+
+func (acq *SapAcquisition) SetCallbackInfo(hdl func(cb SapAcqCallbackInfo), context SapAcqContext) bool {
+	if len(acqCallbackHandler) == 0 {
+		acqCallbackHandler = append(acqCallbackHandler, hdl)
+	}
+
+	return bool(C.SapAcquisition_SetCallbackInfo((C.SapAcquisitionWrapper)(acq.p)))
+}
+
+func (acq *SapAcquisition) SetEventType(event uint64) bool {
+	return bool(C.SapAcquisition_SetEventType((C.SapAcquisitionWrapper)(acq.p), C.UINT64(event)))
+}
+
+// func (cb SapAcqCallbackInfo) GetContext() SapAcqContext {
+// 	return SapAcqContext{p: unsafe.Pointer(C.SapAcqCallbackInfo_GetContext(cb.p))}
+// }

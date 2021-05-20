@@ -6,7 +6,7 @@ SapAcquisitionWrapper SapAcquisition_New() {
 }
 
 SapAcquisitionWrapper SapAcquisition_NewForLocation(SapLocationWrapper loc, const char* camFilename) {
-    return new SapAcquisition(*loc, camFilename);
+    return new SapAcquisition(*loc, camFilename, EventNone, goacqhandler);
 }
 
 void SapAcquisition_Delete(SapAcquisitionWrapper acq) {
@@ -39,4 +39,30 @@ const char* SapAcquisition_GetLastStatus(SapAcquisitionWrapper acq) {
 
 bool SapAcquisition_ResetTimeStamp(SapAcquisitionWrapper acq) {
     return acq->ResetTimeStamp();
+}
+
+bool SapAcquisition_RegisterCallback(SapAcquisitionWrapper acq, UINT64 eventType, SapAcqContextWrapper context) {
+    return acq->RegisterCallback(eventType, goacqhandler, NULL);
+}
+
+bool SapAcquisition_UnregisterCallbacks(SapAcquisitionWrapper acq) {
+    // UINT32 eventCount, eventIndex;
+    // acq->GetEventCount(&eventCount);
+    // for (eventIndex = 0; eventIndex < eventCount; eventIndex++) {
+    //     BOOL isRegistered;
+    //     acq.IsCallbackRegistered(eventIndex, &isRegistered);
+    //     if (isRegistered) {
+    //         acq->UnregisterCallback(eventIndex);
+    //     }
+    // }
+
+    return true;
+}
+
+bool SapAcquisition_SetCallbackInfo(SapAcquisitionWrapper acq) {
+    return acq->SetCallbackInfo(goacqhandler);
+}
+
+bool SapAcquisition_SetEventType(SapAcquisitionWrapper acq, UINT64 eventType) {
+    return acq->SetEventType(eventType);
 }

@@ -8,6 +8,7 @@ package sapera
 #include "sap.h"
 
 extern void goxferhandler(SapXferCallbackInfoWrapper pinfo);
+extern void goacqhandler(SapAcqCallbackInfoWrapper pinfo);
 */
 import "C"
 
@@ -26,4 +27,18 @@ func goxferhandler(cb C.SapXferCallbackInfoWrapper) {
 
 	ctx := cbinfo.GetContext()
 	fmt.Println("no callback handler for frame transfer from ID", ctx.GetID())
+}
+
+var acqCallbackHandler []func(cb SapAcqCallbackInfo)
+
+//export goacqhandler
+func goacqhandler(cb C.SapAcqCallbackInfoWrapper) {
+	cbinfo := SapAcqCallbackInfo{p: cb}
+	// TODO: use cbinfo context to determine which callback applies to this acquisition
+	if len(acqCallbackHandler) > 0 && acqCallbackHandler[0] != nil {
+		acqCallbackHandler[0](cbinfo)
+		return
+	}
+
+	fmt.Println("no callback handler for acquisition")
 }

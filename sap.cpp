@@ -6,6 +6,11 @@ extern "C"
 	{
 		goxferhandler(pInfo);
 	}
+
+	void acqgocallback(SapAcqCallbackInfoWrapper pInfo)
+	{
+		goacqhandler(pInfo);
+	}
 }
 
 void SapManager_Init() {
