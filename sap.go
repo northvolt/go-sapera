@@ -59,6 +59,33 @@ const (
 	AcqEventLinkUnlock                       = C.CORACQ_VAL_EVENT_TYPE_LINK_UNLOCK
 	AcqEventCameraMissedTrigger              = C.CORACQ_VAL_EVENT_TYPE_CAMERA_MISSED_TRIGGER
 	AcqEventCameraBufferOverrun              = C.CORACQ_VAL_EVENT_TYPE_CAMERA_BUFFER_OVERRUN
+
+	// Monochrome data formats
+	SapFormatMono8  = C.CORDATA_FORMAT_MONO8
+	SapFormatInt8   = C.CORDATA_FORMAT_INT8
+	SapFormatUint8  = C.CORDATA_FORMAT_UINT8
+	SapFormatMono16 = C.CORDATA_FORMAT_MONO16
+	SapFormatInt16  = C.CORDATA_FORMAT_INT16
+	SapFormatUint16 = C.CORDATA_FORMAT_UINT16
+	SapFormatMono24 = C.CORDATA_FORMAT_MONO24
+	SapFormatInt24  = C.CORDATA_FORMAT_INT24
+	SapFormatUint24 = C.CORDATA_FORMAT_UINT24
+	SapFormatMono32 = C.CORDATA_FORMAT_MONO32
+	SapFormatInt32  = C.CORDATA_FORMAT_INT32
+	SapFormatUint32 = C.CORDATA_FORMAT_UINT32
+	SapFormatMono64 = C.CORDATA_FORMAT_MONO64
+	SapFormatInt64  = C.CORDATA_FORMAT_INT64
+	SapFormatUint64 = C.CORDATA_FORMAT_UINT64
+
+	// Color RGB data formats
+	SapFormatRGB5551     = C.CORDATA_FORMAT_RGB5551     // 16-bit
+	SapFormatRGB565      = C.CORDATA_FORMAT_RGB565      // 16-bit
+	SapFormatRGB888      = C.CORDATA_FORMAT_RGB888      // 24-bit
+	SapFormatRGBR888     = C.CORDATA_FORMAT_RGBR888     // 24-bit
+	SapFormatRGB8888     = C.CORDATA_FORMAT_RGB8888     // 32-bit
+	SapFormatRGB101010   = C.CORDATA_FORMAT_RGB101010   // 32-bit
+	SapFormatRGB161616   = C.CORDATA_FORMAT_RGB161616   // 48-bit
+	SapFormatRGB16161616 = C.CORDATA_FORMAT_RGB16161616 // 64-bit
 )
 
 // Init initializes the SaperaLT SDK signaling. This function must be called from the main thread of the application,
