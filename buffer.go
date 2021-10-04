@@ -53,6 +53,10 @@ func (buf *SapBuffer) ReadLine(x1, y1, x2, y2 int, data []byte) (int, bool) {
 	return int(cCount), bool(result)
 }
 
+func (buf *SapBuffer) WriteRect(x1, y1, width, height int, data []byte) bool {
+	return bool(C.SapBuffer_WriteRect((C.SapBufferWrapper)(buf.p), C.int(x1), C.int(y1), C.int(width), C.int(height), (unsafe.Pointer(&data[0]))))
+}
+
 func (buf *SapBuffer) Copy(src SapBuffer, srcIndex, dstIndex int) bool {
 	return bool(C.SapBuffer_Copy((C.SapBufferWrapper)(buf.p), (C.SapBufferWrapper)(src.p), C.int(srcIndex), C.int(dstIndex)))
 }

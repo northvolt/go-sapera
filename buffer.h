@@ -26,6 +26,7 @@ int SapBuffer_GetPixelDepth(SapBufferWrapper buf);
 void SapBuffer_SetSrcNode(SapBufferWrapper buf, SapAcquisitionWrapper acq);
 void SapBuffer_ClearSrcNode(SapBufferWrapper buf);
 bool SapBuffer_ReadLine(SapBufferWrapper buf, int x1, int y1, int x2, int y2, void* data, int* count);
+bool SapBuffer_WriteRect(SapBufferWrapper buf, int x1, int y1, int width, int height, const void* data);
 bool SapBuffer_Copy(SapBufferWrapper buf, SapBufferWrapper pSrc, int srcIndex, int dstIndex);
 bool SapBuffer_CopyRect(SapBufferWrapper buf, SapBufferWrapper pSrc, int srcIndex, int xSrc, int ySrc, int width, int height, int dstIndex, int xDest, int yDest);
 bool SapBuffer_CopyAll(SapBufferWrapper buf, SapBufferWrapper pSrc);

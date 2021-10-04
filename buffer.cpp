@@ -78,6 +78,10 @@ bool SapBuffer_ReadLine(SapBufferWrapper buf, int x1, int y1, int x2, int y2, vo
     return buf->ReadLine(x1, y1, x2, y2, data, count);
 }
 
+bool SapBuffer_WriteRect(SapBufferWrapper buf, int x1, int y1, int width, int height, const void* data){
+    return buf->WriteRect(x1, y1, width, height, data);
+}
+
 bool SapBuffer_Copy(SapBufferWrapper buf, SapBufferWrapper pSrc, int srcIndex, int dstIndex) {
     return buf->Copy(pSrc, srcIndex, dstIndex);
 }
