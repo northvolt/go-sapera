@@ -5,7 +5,10 @@ package sapera
 #include "buffer.h"
 */
 import "C"
-import "unsafe"
+import (
+	"fmt"
+	"unsafe"
+)
 
 type SapBuffer struct {
 	// C.SapBufferWrapper
@@ -46,6 +49,7 @@ func (buf *SapBuffer) ReadLine(x1, y1, x2, y2 int, data []byte) (int, bool) {
 
 	// data is not large enough for desired bytes to be read
 	if len(data) < x2-x1 {
+		fmt.Print("len(data) is not enough")
 		return 0, false
 	}
 
