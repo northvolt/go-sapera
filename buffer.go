@@ -36,7 +36,7 @@ func (buf *SapBuffer) Destroy() bool {
 	return bool(C.SapBuffer_Destroy((C.SapBufferWrapper)(buf.p)))
 }
 
-func (buf *SapBuffer) ReadLine(x1, y1, x2, y2 int, data *[]byte) (int, bool) {
+func (buf *SapBuffer) ReadLine(x1, y1, x2, y2 int, data []byte) (int, bool) {
 	cCount := C.int(0)
 
 	// line must be in a single row
