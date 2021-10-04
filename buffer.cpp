@@ -74,8 +74,8 @@ void SapBuffer_ClearSrcNode(SapBufferWrapper buf) {
     buf->SetSrcNode(NULL);
 }
 
-bool SapBuffer_ReadLine(SapBufferWrapper buf, int x1, int y1, int x2, int y2, void* data, int* count) {
-    return buf->ReadLine(x1, y1, x2, y2, data, count);
+bool SapBuffer_ReadLine(SapBufferWrapper buf, int x1, int y1, int x2, int y2, void data, int count) {
+    return buf->ReadLine(x1, y1, x2, y2, *data, count);
 }
 
 bool SapBuffer_WriteRect(SapBufferWrapper buf, int x1, int y1, int width, int height, const void* data){
