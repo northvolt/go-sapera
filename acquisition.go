@@ -88,6 +88,10 @@ func (acq *SapAcquisition) SetEventType(event uint64) bool {
 	return bool(C.SapAcquisition_SetEventType((C.SapAcquisitionWrapper)(acq.p), C.UINT64(event)))
 }
 
+func (acqcb *SapAcqCallbackInfo) GetEventType(event uint64) bool {
+	return bool(C.SapAcqCallbackInfoWrapper_GetEventType((C.SapAcqCallbackInfoWrapper)(acqcb.p), C.UINT64(event)))
+}
+
 // func (cb SapAcqCallbackInfo) GetContext() SapAcqContext {
 // 	return SapAcqContext{p: unsafe.Pointer(C.SapAcqCallbackInfo_GetContext(cb.p))}
 // }

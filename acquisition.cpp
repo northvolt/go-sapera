@@ -66,3 +66,7 @@ bool SapAcquisition_SetCallbackInfo(SapAcquisitionWrapper acq) {
 bool SapAcquisition_SetEventType(SapAcquisitionWrapper acq, UINT64 eventType) {
     return acq->SetEventType(eventType);
 }
+
+bool SapAcqCallbackInfoWrapper_GetEventType(SapAcqCallbackInfoWrapper acq, UINT64 eventType) {
+    return acq->GetEventType(&eventType);
+}
