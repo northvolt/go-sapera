@@ -22,6 +22,7 @@ bool SapAcquisition_UnregisterCallbacks(SapAcquisitionWrapper acq);
 bool SapAcquisition_SetCallbackInfo(SapAcquisitionWrapper acq);
 bool SapAcquisition_SetEventType(SapAcquisitionWrapper acq, UINT64 eventType);
 bool SapAcqCallbackInfoWrapper_GetEventType(SapAcqCallbackInfoWrapper acq, UINT64 eventType);
+bool SapAcquisition_SetFlipMode(SapAcquisitionWrapper acq, int flipMode);
 
 #ifdef __cplusplus
 }
