@@ -20,6 +20,10 @@ const (
 
 	CORBUFFER_PRM_ADDRESS = C.CORBUFFER_PRM_ADDRESS
 
+	// registers related to horizontal flip
+	CORACQ_PRM_FLIP = C.CORACQ_PRM_FLIP
+	CORACQ_CAP_FLIP = C.CORACQ_CAP_FLIP
+
 	// acquisition events
 	AcqEventNone                             = 0
 	AcqEventShaftEncoderReverseCountOverflow = C.CORACQ_VAL_EVENT_TYPE_SHAFT_ENCODER_REVERSE_COUNT_OVERFLOW
@@ -86,6 +90,11 @@ const (
 	SapFormatRGB101010   = C.CORDATA_FORMAT_RGB101010   // 32-bit
 	SapFormatRGB161616   = C.CORDATA_FORMAT_RGB161616   // 48-bit
 	SapFormatRGB16161616 = C.CORDATA_FORMAT_RGB16161616 // 64-bit
+
+	// Flip mode
+	SapFlipOff        = C.CORACQ_VAL_FLIP_OFF
+	SapFlipHorizontal = C.CORACQ_VAL_FLIP_HORZ
+	SapFlipVertical   = C.CORACQ_VAL_FLIP_VERT
 )
 
 // Init initializes the SaperaLT SDK signaling. This function must be called from the main thread of the application,

@@ -95,3 +95,7 @@ func (acqcb *SapAcqCallbackInfo) GetEventType(event uint64) bool {
 // func (cb SapAcqCallbackInfo) GetContext() SapAcqContext {
 // 	return SapAcqContext{p: unsafe.Pointer(C.SapAcqCallbackInfo_GetContext(cb.p))}
 // }
+
+func (acq *SapAcquisition) SetFlipMode(flipMode int) bool {
+	return bool(C.SapAcquisition_SetFlipMode((C.SapAcquisitionWrapper)(acq.p), C.int(flipMode)))
+}
