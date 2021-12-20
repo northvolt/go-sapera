@@ -8,6 +8,8 @@
 extern "C" {
 #endif
 
+#define MX4MetadataSize 64
+
 typedef struct
 {
   ULONGLONG shaftEncoderCount;
@@ -23,7 +25,7 @@ typedef struct
 
 typedef MX4Metadata* MX4MetadataWrapper;
 
-MX4MetadataWrapper GetMX4MetadataFromBuffer(SapBufferWrapper buf, int width, int height);
+MX4MetadataWrapper GetMX4MetadataFromBuffer(SapBufferWrapper buf, int width, int line);
 void MX4Metadata_Close(MX4MetadataWrapper mta);
 
 #ifdef __cplusplus
