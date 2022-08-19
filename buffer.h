@@ -29,8 +29,7 @@ bool SapBuffer_ReadLine(SapBufferWrapper buf, int x1, int y1, int x2, int y2, vo
 bool SapBuffer_ReadLineWithIndex(SapBufferWrapper buf, int index, int x1, int y1, int x2, int y2, void* data, int* count);
 bool SapBuffer_Copy(SapBufferWrapper buf, SapBufferWrapper pSrc);
 bool SapBuffer_CopyWithIndex(SapBufferWrapper buf, SapBufferWrapper pSrc, int srcIndex, int dstIndex);
-bool SapBuffer_CopyRect(SapBufferWrapper buf, SapBufferWrapper pSrc, int xSrc, int ySrc, int width, int height, int dstIndex, int xDest, int yDest);
-bool SapBuffer_CopyRectWithIndex(SapBufferWrapper buf, SapBufferWrapper pSrc, int srcIndex, int xSrc, int ySrc, int width, int height, int dstIndex, int xDest, int yDest);
+bool SapBuffer_CopyRect(SapBufferWrapper buf, SapBufferWrapper pSrc, int srcIndex, int xSrc, int ySrc, int width, int height, int dstIndex, int xDest, int yDest);
 bool SapBuffer_CopyAll(SapBufferWrapper buf, SapBufferWrapper pSrc);
 bool SapBuffer_Save(SapBufferWrapper buf, const char* fileName, const char* options);
 bool SapBuffer_SaveForIndex(SapBufferWrapper buf, const char* fileName, const char* options, int index);
