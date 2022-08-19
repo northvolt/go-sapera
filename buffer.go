@@ -53,12 +53,37 @@ func (buf *SapBuffer) ReadLine(x1, y1, x2, y2 int, data []byte) (int, bool) {
 	return int(cCount), bool(result)
 }
 
-func (buf *SapBuffer) Copy(src SapBuffer, srcIndex, dstIndex int) bool {
-	return bool(C.SapBuffer_Copy((C.SapBufferWrapper)(buf.p), (C.SapBufferWrapper)(src.p), C.int(srcIndex), C.int(dstIndex)))
+func (buf *SapBuffer) ReadLineWithIndex(index, x1, y1, x2, y2 int, data []byte) (int, bool) {
+	cCount := C.int(0)
+
+	// line must be in a single row
+	if y1 != y2 {
+		return 0, false
+	}
+
+	// data is not large enough for desired bytes to be read
+	if len(data) < x2-x1 {
+		return 0, false
+	}
+
+	result := C.SapBuffer_ReadLineWithIndex((C.SapBufferWrapper)(buf.p), C.int(index), C.int(x1), C.int(y1), C.int(x2), C.int(y2), (unsafe.Pointer(&data[0])), &cCount)
+	return int(cCount), bool(result)
 }
 
-func (buf *SapBuffer) CopyRect(src SapBuffer, srcIndex, xSrc, ySrc, width, height, dstIndex, xDest, yDest int) bool {
-	return bool(C.SapBuffer_CopyRect((C.SapBufferWrapper)(buf.p), (C.SapBufferWrapper)(src.p), C.int(srcIndex), C.int(xSrc), C.int(ySrc), C.int(width), C.int(height), C.int(dstIndex), C.int(xDest), C.int(yDest)))
+func (buf *SapBuffer) Copy(src SapBuffer) bool {
+	return bool(C.SapBuffer_Copy((C.SapBufferWrapper)(buf.p), (C.SapBufferWrapper)(src.p)))
+}
+
+func (buf *SapBuffer) CopyWithIndex(src SapBuffer, srcIndex, dstIndex int) bool {
+	return bool(C.SapBuffer_CopyWithIndex((C.SapBufferWrapper)(buf.p), (C.SapBufferWrapper)(src.p), C.int(srcIndex), C.int(dstIndex)))
+}
+
+func (buf *SapBuffer) CopyRect(src SapBuffer, xSrc, ySrc, width, height, dstIndex, xDest, yDest int) bool {
+	return bool(C.SapBuffer_CopyRect((C.SapBufferWrapper)(buf.p), (C.SapBufferWrapper)(src.p), C.int(xSrc), C.int(ySrc), C.int(width), C.int(height), C.int(dstIndex), C.int(xDest), C.int(yDest)))
+}
+
+func (buf *SapBuffer) CopyRectWithIndex(src SapBuffer, srcIndex, xSrc, ySrc, width, height, dstIndex, xDest, yDest int) bool {
+	return bool(C.SapBuffer_CopyRectWithIndex((C.SapBufferWrapper)(buf.p), (C.SapBufferWrapper)(src.p), C.int(srcIndex), C.int(xSrc), C.int(ySrc), C.int(width), C.int(height), C.int(dstIndex), C.int(xDest), C.int(yDest)))
 }
 
 func (buf *SapBuffer) CopyAll(src SapBuffer) bool {

@@ -78,11 +78,23 @@ bool SapBuffer_ReadLine(SapBufferWrapper buf, int x1, int y1, int x2, int y2, vo
     return buf->ReadLine(x1, y1, x2, y2, data, count);
 }
 
-bool SapBuffer_Copy(SapBufferWrapper buf, SapBufferWrapper pSrc, int srcIndex, int dstIndex) {
+bool SapBuffer_ReadLineWithIndex(SapBufferWrapper buf, int index, int x1, int y1, int x2, int y2, void* data, int* count) {
+    return buf->ReadLine(index, x1, y1, x2, y2, data, count);
+}
+
+bool SapBuffer_Copy(SapBufferWrapper buf, SapBufferWrapper pSrc) {
+    return buf->Copy(pSrc);
+}
+
+bool SapBuffer_CopyWithIndex(SapBufferWrapper buf, SapBufferWrapper pSrc, int srcIndex, int dstIndex) {
     return buf->Copy(pSrc, srcIndex, dstIndex);
 }
 
-bool SapBuffer_CopyRect(SapBufferWrapper buf, SapBufferWrapper pSrc, int srcIndex, int xSrc, int ySrc, int width, int height, int dstIndex, int xDest, int yDest) {
+bool SapBuffer_CopyRect(SapBufferWrapper buf, SapBufferWrapper pSrc, int xSrc, int ySrc, int width, int height, int dstIndex, int xDest, int yDest) {
+    return buf->CopyRect(pSrc, xSrc, ySrc, width, height, dstIndex, xDest, yDest);
+}
+
+bool SapBuffer_CopyRectWithIndex(SapBufferWrapper buf, SapBufferWrapper pSrc, int srcIndex, int xSrc, int ySrc, int width, int height, int dstIndex, int xDest, int yDest) {
     return buf->CopyRect(pSrc, srcIndex, xSrc, ySrc, width, height, dstIndex, xDest, yDest);
 }
 
