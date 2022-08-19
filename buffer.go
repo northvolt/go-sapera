@@ -78,12 +78,8 @@ func (buf *SapBuffer) CopyWithIndex(src SapBuffer, srcIndex, dstIndex int) bool 
 	return bool(C.SapBuffer_CopyWithIndex((C.SapBufferWrapper)(buf.p), (C.SapBufferWrapper)(src.p), C.int(srcIndex), C.int(dstIndex)))
 }
 
-func (buf *SapBuffer) CopyRect(src SapBuffer, xSrc, ySrc, width, height, dstIndex, xDest, yDest int) bool {
-	return bool(C.SapBuffer_CopyRect((C.SapBufferWrapper)(buf.p), (C.SapBufferWrapper)(src.p), C.int(xSrc), C.int(ySrc), C.int(width), C.int(height), C.int(dstIndex), C.int(xDest), C.int(yDest)))
-}
-
-func (buf *SapBuffer) CopyRectWithIndex(src SapBuffer, srcIndex, xSrc, ySrc, width, height, dstIndex, xDest, yDest int) bool {
-	return bool(C.SapBuffer_CopyRectWithIndex((C.SapBufferWrapper)(buf.p), (C.SapBufferWrapper)(src.p), C.int(srcIndex), C.int(xSrc), C.int(ySrc), C.int(width), C.int(height), C.int(dstIndex), C.int(xDest), C.int(yDest)))
+func (buf *SapBuffer) CopyRect(src SapBuffer, srcIndex, xSrc, ySrc, width, height, dstIndex, xDest, yDest int) bool {
+	return bool(C.SapBuffer_CopyRect((C.SapBufferWrapper)(buf.p), (C.SapBufferWrapper)(src.p), C.int(srcIndex), C.int(xSrc), C.int(ySrc), C.int(width), C.int(height), C.int(dstIndex), C.int(xDest), C.int(yDest)))
 }
 
 func (buf *SapBuffer) CopyAll(src SapBuffer) bool {

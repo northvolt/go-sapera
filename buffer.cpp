@@ -90,11 +90,7 @@ bool SapBuffer_CopyWithIndex(SapBufferWrapper buf, SapBufferWrapper pSrc, int sr
     return buf->Copy(pSrc, srcIndex, dstIndex);
 }
 
-bool SapBuffer_CopyRect(SapBufferWrapper buf, SapBufferWrapper pSrc, int xSrc, int ySrc, int width, int height, int dstIndex, int xDest, int yDest) {
-    return buf->CopyRect(pSrc, xSrc, ySrc, width, height, dstIndex, xDest, yDest);
-}
-
-bool SapBuffer_CopyRectWithIndex(SapBufferWrapper buf, SapBufferWrapper pSrc, int srcIndex, int xSrc, int ySrc, int width, int height, int dstIndex, int xDest, int yDest) {
+bool SapBuffer_CopyRect(SapBufferWrapper buf, SapBufferWrapper pSrc, int srcIndex, int xSrc, int ySrc, int width, int height, int dstIndex, int xDest, int yDest) {
     return buf->CopyRect(pSrc, srcIndex, xSrc, ySrc, width, height, dstIndex, xDest, yDest);
 }
 
