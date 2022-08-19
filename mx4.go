@@ -24,6 +24,12 @@ func GetMX4MetadataFromBuffer(buf SapBuffer, width, line int) MX4Metadata {
 	return MX4Metadata{p: unsafe.Pointer(C.GetMX4MetadataFromBuffer((C.SapBufferWrapper)(buf.p), C.int(width), C.int(line)))}
 }
 
+// GetMX4MetadataFromBufferWithIndex returns the MX4Metadata for an indexed buffer. Pass in the index to use, the width of the
+// image part of the buffer, and the line number (1-indexed) for which you want the metadata.
+func GetMX4MetadataFromBufferWithIndex(buf SapBuffer, index, width, line int) MX4Metadata {
+	return MX4Metadata{p: unsafe.Pointer(C.GetMX4MetadataFromBufferWithIndex((C.SapBufferWrapper)(buf.p), C.int(index), C.int(width), C.int(line)))}
+}
+
 // Close cleans up any memory that has been allocated for the MX4Metadata.
 func (mta MX4Metadata) Close() {
 	C.MX4Metadata_Close((C.MX4MetadataWrapper)(mta.p))
