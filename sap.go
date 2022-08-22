@@ -129,3 +129,31 @@ func GetServerCount() int {
 func GetLastStatus() string {
 	return C.GoString(C.SapManager_GetLastStatus())
 }
+
+type SapVersionInfo struct {
+	p C.SapVersionInfoWrapper
+}
+
+func GetVersionInfo() SapVersionInfo {
+	return SapVersionInfo{p: C.SapManager_GetVersionInfo()}
+}
+
+func (v *SapVersionInfo) Delete() {
+	C.SapVersionInfo_Delete(v.p)
+}
+
+func (v *SapVersionInfo) GetMajor() int {
+	return int(C.SapVersionInfo_GetMajor(v.p))
+}
+
+func (v *SapVersionInfo) GetMinor() int {
+	return int(C.SapVersionInfo_GetMinor(v.p))
+}
+
+func (v *SapVersionInfo) GetRevision() int {
+	return int(C.SapVersionInfo_GetRevision(v.p))
+}
+
+func (v *SapVersionInfo) GetBuild() int {
+	return int(C.SapVersionInfo_GetBuild(v.p))
+}
