@@ -20,7 +20,9 @@ func main() {
 	fmt.Println("Initializing SaperaLT...")
 	sapera.Init()
 
-	fmt.Println("starting, sapera.GetServerCount() = ", sapera.GetServerCount())
+	fmt.Sprintln("Running go-sapera %s with Sapera SDK %s", sapera.Version(), sapera.SDKVersion())
+	fmt.Sprintln("Starting capture with %d boards", sapera.GetServerCount())
+
 	go scan(doneChan)
 
 	time.Sleep(10 * time.Second)

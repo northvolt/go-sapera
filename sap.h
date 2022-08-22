@@ -23,6 +23,7 @@ extern "C" {
   extern void xferCallback(SapXferCallbackInfoWrapper pInfo);
   extern void acqCallback(SapAcqCallbackInfoWrapper pInfo);
 }
+typedef SapVersionInfo* SapVersionInfoWrapper;
 #else
 typedef void* SapBufferWrapper;
 typedef void* SapAcquisitionWrapper;
@@ -33,6 +34,7 @@ typedef void* SapXferFrameRateInfoWrapper;
 typedef void* SapAcqCallbackInfoWrapper;
 extern  void xferCallback(SapXferCallbackInfoWrapper pInfo);
 extern  void acqCallback(SapAcqCallbackInfoWrapper pInfo);
+typedef void* SapVersionInfoWrapper;
 #endif
 
 typedef struct
@@ -60,9 +62,15 @@ extern void _CorW32_EnableKernelEventNotification(void); // New entrypoint that 
 void SapManager_Init();
 int SapManager_GetServerCount();
 const char* SapManager_GetLastStatus();
-
 SapLocationWrapper SapLocation_New(const char* acqServerName, int acqDeviceNumber);
 void SapLocation_Delete(SapLocationWrapper loc);
+
+SapVersionInfoWrapper SapManager_GetVersionInfo();
+void SapVersionInfo_Delete(SapVersionInfoWrapper v);
+int SapVersionInfo_GetMajor(SapVersionInfoWrapper v);
+int SapVersionInfo_GetMinor(SapVersionInfoWrapper v);
+int SapVersionInfo_GetRevision(SapVersionInfoWrapper v);
+int SapVersionInfo_GetBuild(SapVersionInfoWrapper v);
 
 #ifdef __cplusplus
 }
