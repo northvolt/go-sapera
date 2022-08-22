@@ -23,7 +23,7 @@ extern "C" {
   extern void xferCallback(SapXferCallbackInfoWrapper pInfo);
   extern void acqCallback(SapAcqCallbackInfoWrapper pInfo);
 }
-typedef SapVersionInfo* SapVersionInfoWrapper;
+typedef SapManVersionInfo* SapVersionInfoWrapper;
 #else
 typedef void* SapBufferWrapper;
 typedef void* SapAcquisitionWrapper;

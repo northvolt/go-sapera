@@ -35,7 +35,7 @@ void SapLocation_Delete(SapLocationWrapper loc) {
 }
 
 SapVersionInfoWrapper SapManager_GetVersionInfo() {
-	SapVersionInfo* info = new SapVersionInfo();
+	SapManVersionInfo* info = new SapManVersionInfo();
 	SapManager::GetVersionInfo(info);
 	return info;
 }
