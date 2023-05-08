@@ -11,6 +11,11 @@ extern "C" {
 
 #include "corapi.h"
 
+// This parameter is not yet defined in the linux api (BJSU, 2023-05-08) 
+#ifndef CORACQ_PRM_META_DATA_CLEAR
+#define CORACQ_PRM_META_DATA_CLEAR CORACQ_PRM(0x0000001C, 4)
+#endif
+
 #ifdef __cplusplus
 typedef SapBuffer* SapBufferWrapper;
 typedef SapAcquisition* SapAcquisitionWrapper;
