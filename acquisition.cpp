@@ -67,8 +67,8 @@ bool SapAcquisition_SetEventType(SapAcquisitionWrapper acq, UINT64 eventType) {
     return acq->SetEventType(eventType);
 }
 
-bool SapAcqCallbackInfoWrapper_GetEventType(SapAcqCallbackInfoWrapper acq, UINT64 eventType) {
-    return acq->GetEventType(&eventType);
+bool SapAcqCallbackInfoWrapper_GetEventType(SapAcqCallbackInfoWrapper acq, UINT64 *eventType) {
+    return acq->GetEventType(eventType);
 }
 
 bool SapAcquisition_SetFlipMode(SapAcquisitionWrapper acq, int flipMode){
