@@ -34,7 +34,7 @@ const (
 	CORACQ_PRM_SHAFT_ENCODER_MULTIPLY = C.CORACQ_PRM_SHAFT_ENCODER_MULTIPLY
 	CORACQ_PRM_SHAFT_ENCODER_DROP     = C.CORACQ_PRM_SHAFT_ENCODER_DROP
 
-	//reigster for internal line trigger frequency
+	//register for internal line trigger frequency
 	CORACQ_PRM_INT_LINE_TRIGGER_FREQ = C.CORACQ_PRM_INT_LINE_TRIGGER_FREQ
 
 	// acquisition events
